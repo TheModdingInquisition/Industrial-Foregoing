@@ -37,6 +37,12 @@ import top.theillusivec4.curios.api.type.capability.ICurio;
 
 public class MeatFeedCurios implements ICurio, ICurioRenderer {
 
+    private final ItemStack itemStack;
+
+    public MeatFeedCurios(ItemStack itemStack) {
+        this.itemStack = itemStack;
+    }
+
     @Override
     public boolean canEquip(String identifier, LivingEntity livingEntity) {
         return identifier.equals(SlotTypePreset.HEAD.getIdentifier());
@@ -44,7 +50,7 @@ public class MeatFeedCurios implements ICurio, ICurioRenderer {
 
     @Override
     public ItemStack getStack() {
-        return null;
+        return itemStack;
     }
 
     @Override

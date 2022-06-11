@@ -42,6 +42,12 @@ import top.theillusivec4.curios.api.type.capability.ICurio;
 
 public class InfinityBackpackCurios implements ICurio, ICurioRenderer {
 
+    private final ItemStack itemStack;
+
+    public InfinityBackpackCurios(ItemStack itemStack) {
+        this.itemStack = itemStack;
+    }
+
     @Override
     public boolean canEquip(String identifier, LivingEntity livingEntity) {
         return identifier.equals(SlotTypePreset.BACK.getIdentifier());
@@ -49,7 +55,7 @@ public class InfinityBackpackCurios implements ICurio, ICurioRenderer {
 
     @Override
     public ItemStack getStack() {
-        return null;
+        return itemStack;
     }
 
     @Override

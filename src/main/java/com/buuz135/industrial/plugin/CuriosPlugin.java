@@ -64,7 +64,7 @@ public class CuriosPlugin implements FeaturePluginInstance {
                     stackEvent.addCapability(new ResourceLocation(Reference.MOD_ID, stack.getItem().getRegistryName().getPath() + "_curios"), new ICapabilityProvider() {
                         @Override
                         public <T> LazyOptional<T> getCapability(Capability<T> cap, @Nullable Direction side) {
-                            if (cap == CuriosCapability.ITEM) return LazyOptional.of(MeatFeedCurios::new).cast();
+                            if (cap == CuriosCapability.ITEM) return LazyOptional.of(() -> new MeatFeedCurios(stack)).cast();
                             return LazyOptional.empty();
                         }
                     });
@@ -73,7 +73,7 @@ public class CuriosPlugin implements FeaturePluginInstance {
                     stackEvent.addCapability(new ResourceLocation(Reference.MOD_ID, stack.getItem().getRegistryName().getPath() + "_curios"), new ICapabilityProvider() {
                         @Override
                         public <T> LazyOptional<T> getCapability(Capability<T> cap, @Nullable Direction side) {
-                            if (cap == CuriosCapability.ITEM) return LazyOptional.of(InfinityBackpackCurios::new).cast();
+                            if (cap == CuriosCapability.ITEM) return LazyOptional.of(() -> new InfinityBackpackCurios(stack)).cast();
                             return LazyOptional.empty();
                         }
                     });
